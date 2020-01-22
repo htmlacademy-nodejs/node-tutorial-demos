@@ -1,0 +1,8 @@
+node_modules/
+build/*
+.idea/
+*.log
+*.lock
+.DS_Store
+Thumbs.db
+*~
