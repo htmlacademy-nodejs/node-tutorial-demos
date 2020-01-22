@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация XSS</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <form id="basic-form">
+    <input id="user-name" type="text">
+    <input type="submit" value="Отправить" placeholder="Пожалуйста, представьтесь">
+    <p id="welcome-user"></p>
+  </form>
+  <script>
+    'use strict';
+
+    const submitFormHandler = (evt) => {
+      evt.preventDefault();
+      welcomeUserElement.innerHTML = `Привет, ${userNameElement.value}!`;
+    }
+
+    const formElement = document.querySelector(`#basic-form`);
+    const welcomeUserElement = formElement.querySelector(`#welcome-user`);
+    const userNameElement = formElement.querySelector(`#user-name`);
+
+    formElement.addEventListener(`submit`, submitFormHandler);
+  </script>
+</body>
+
+</html>

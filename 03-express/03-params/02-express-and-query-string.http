@@ -1,0 +1,25 @@
+# Передача параметров
+GET http://localhost:3000/?company=HTMLAcademy&site=https://htmlacademy.ru HTTP/1.1
+
+###
+
+# Передача массива параметров
+GET http://localhost:3000/?brands[]=apple&brands[]=lenovo&brands[]=asus HTTP/1.1
+
+###
+
+# Отправка JSON объекта
+POST http://localhost:3000/company
+Content-Type: application/json
+
+{
+  "name": "HTML Academy",
+  "site": "https://htmlacademy.ru",
+  "instagram": "https://www.instagram.com/htmlacademy/",
+  "twitter": "https://twitter.com/htmlacademy_ru"
+}
+
+###
+
+# Именованные параметры
+GET http://localhost:3000/company/0

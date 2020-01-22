@@ -1,0 +1,23 @@
+
+#  Пример POST-запроса
+POST http://localhost:3000/company HTTP/1.1
+###
+
+#  Пример PATCH-запроса
+PATCH http://localhost:3000/company HTTP/1.1
+###
+
+#  Пример DELETE-запроса
+DELETE http://localhost:3000/company HTTP/1.1
+###
+
+#  Пример PUT-запроса
+PUT http://localhost:3000/company HTTP/1.1
+###
+
+# Маршрут в виде регулярного выражения (page[0-9]+)
+GET http://localhost:3000/page0 HTTP/1.1
+###
+
+# Маршрут в виде регулярного выражения (page[0-9]+)
+GET http://localhost:3000/page1000 HTTP/1.1

@@ -1,0 +1,42 @@
+# Валидные данные
+POST http://localhost:3000/book HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Оно",
+  "releaseDate": "1984-01-01",
+  "pageCount": 1143,
+  "author": {
+      "firstname": "Стивен",
+      "lastname": "Кинг",
+      "birthDate": "1947-09-21",
+      "email": "king@king.com"
+  },
+  "price": "100",
+  "genres": ["drama", "horror"],
+  "coverType": "hard"
+}
+
+###
+
+# Допущены ошибки:
+# - неправильный формат даты;
+# - отсутствует поле `pageCount`;
+# - в `price` некорректное значение
+POST http://localhost:3000/book HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Оно",
+  "releaseDate": "01.01.1984",
+  "author": {
+      "firstname": "Стивен",
+      "lastname": "Кинг",
+      "birthDate": "1947-09-21",
+      "email": "king@king.com"
+  },
+  "price": "a lot of",
+  "genres": ["drama", "horror"],
+  "coverType": "hard"
+}
+

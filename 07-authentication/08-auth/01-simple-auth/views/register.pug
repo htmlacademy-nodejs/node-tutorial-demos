@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+  h1 Регистрация
+  form.register-form(action='/register', method='POST', autocomplete='off')
+    label(for='username') Имя пользователя:
+    input#username.field(type='email', name='username')
+    label(for='password') Пароль:
+    input#password(type='password', name='password')
+    label(for='repeat-password') Повтор пароля:
+    input#repeat-password(type='password', name='repeat')
+    button(type='submit') Зарегистрироваться
+    if errorsMessages
+      ul
+        each error in errorsMessages
+          li #{error}

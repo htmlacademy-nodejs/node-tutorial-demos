@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+  h1 Вход
+  form(action='/login', method='POST')
+    label(for='username') Имя пользователя:
+    input#username.field(type='email', name='username')
+    label(for='password') Пароль:
+    input#password(type='password', name='password')
+    button(type='submit') Войти
+    if errorsMessages
+      ul
+        each error in errorsMessages
+          li #{error}

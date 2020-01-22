@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>WebSocket</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>-</h1>
+    <h3>Статус подключения: <span>Нет соединения</span></h3>
+    <script>
+      const TIMEOUT = 2000;
+      const titleElement = document.querySelector(`h1`);
+      const statusElement = document.querySelector(`span`);
+
+      setTimeout(() => {
+
+        const ws = new WebSocket(`ws://localhost:8080`);
+
+        ws.addEventListener(`message`, (evt) => {
+          const {data} = evt;
+          titleElement.textContent = data;
+        });
+
+        ws.addEventListener(`open`, () => {
+          statusElement.textContent = `Подключено`;  
+        });
+
+        ws.addEventListener(`close`, () => {
+          statusElement.textContent = `Отключен`;
+        });
+
+
+      }, TIMEOUT);
+
+    </script>
+</body>
+</html>
