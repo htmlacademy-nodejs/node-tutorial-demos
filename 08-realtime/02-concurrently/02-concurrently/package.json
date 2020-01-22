@@ -1,0 +1,19 @@
+{
+  "name": "02-jwt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm:run:first\" \"npm:run:second\"",
+    "run:first": "node first-server.js",
+    "run:second": "node second-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "5.2.0",
+    "express": "4.17.1"
+  }
+}

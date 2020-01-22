@@ -1,0 +1,17 @@
+{
+  "name": "02-router",
+  "version": "1.0.0",
+  "description": "",
+  "main": "02-router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parse": "0.1.0",
+    "body-parser": "1.19.0",
+    "express": "4.17.1"
+  }
+}

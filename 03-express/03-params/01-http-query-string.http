@@ -1,0 +1,11 @@
+# Получить все комментариев к публикациям
+GET https://jsonplaceholder.typicode.com/comments HTTP/1.1
+Content-Type: application/json
+
+###
+
+## Получить комментарии для публикации с идентификатором 1
+GET https://jsonplaceholder.typicode.com/comments?postId=1 HTTP/1.1
+Content-Type: application/json
+
+###

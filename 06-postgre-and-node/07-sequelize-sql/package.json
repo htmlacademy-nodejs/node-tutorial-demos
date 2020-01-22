@@ -1,0 +1,16 @@
+{
+  "name": "samples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-raw.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "8.0.3",
+    "sequelize": "5.21.7"
+  }
+}
