@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>WebSocket</title>
+    <meta charset="utf-8" />
+</head>
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 300px;
+  }
+
+  label {
+    font-weight: bold;
+    padding: 8px 0;
+  }
+
+  input {
+    padding: 10px;
+    width: 100%;
+  }
+
+  button {
+    padding: 10px;
+    margin-top: 15px;
+  }
+</style>
+<body>
+    <h1>Чат (<span class="status">Нет соединения</span>)</h1>
+    <form class="chat-form">
+      <label>Имя:
+        <input class="chat-form__username" />
+      </label>
+      <label>Сообщение:
+        <input class="chat-form__message" />
+      </label>
+      <button class="chat-form__send-button" type="submit">Отправить</button>
+    </form>
+
+    <h2>Сообщения:</h2>
+    <ul class="chat"></ul>
+
+    <script>
+
+      const ReadyState = {
+        CONNECTING: 0,
+        OPEN: 1,
+        CLOSING: 2,
+        CLOSED: 3,
+      }
+
+      const statusElement = document.querySelector(`.status`);
+      const chatFormElement = document.querySelector(`.chat-form`);
+      const messageElement = chatFormElement.querySelector(`.chat-form__message`);
+      const usernameElement = chatFormElement.querySelector(`.chat-form__username`);
+      const chatElement = document.querySelector(`.chat`);
+
+      const ws = new WebSocket(`ws://localhost:4000`);
+
+      const addMessage = (message) => {
+        const newMessageElement = document.createElement(`li`);
+        newMessageElement.textContent = message;
+        chatElement.appendChild(newMessageElement);
+      }
+
+      chatFormElement.addEventListener(`submit`, (evt) => {
+        evt.preventDefault();
+
+        const {value: newMessage} = messageElement;
+        const {value: username} = usernameElement;
+        const message = `[${username}]: ${newMessage}`;
+
+        messageElement.value = ``;
+        messageElement.focus();
+
+        if (ws.readyState !== ReadyState.OPEN) {
+          alert(`Соединение с сервером прервано. Обновите страницу.`);
+          return;
+        }
+
+        addMessage(message);
+        ws.send(message);
+      });
+
+      ws.addEventListener(`message`, (evt) => {
+        const {data} = evt;
+        addMessage(`${data}`);
+      });
+
+      ws.addEventListener(`open`, () => {
+        statusElement.textContent = `Подключено`;  
+      });
+
+      ws.addEventListener(`close`, () => {
+        statusElement.textContent = `Отключён`;
+      });
+    </script>
+</body>
+</html>

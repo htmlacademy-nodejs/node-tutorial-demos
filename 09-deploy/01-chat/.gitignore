@@ -1,0 +1,10 @@
+.idea
+.DS_Store
+node_modules
+npm-debug.log
+Thumbs.db
+todo.md
+yarn.lock
+.vscode/
+build/
+release/
