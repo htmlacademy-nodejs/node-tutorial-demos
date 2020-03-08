@@ -1,0 +1,18 @@
+{
+  "name": "sample-chapter-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-hello-pino.js",
+  "scripts": {
+    "start": "node server.js",
+    "debug": "LOG_LEVEL=debug node server.js | ./node_modules/.bin/pino-pretty"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pino": "5.17.0"
+  },
+  "devDependencies": {
+    "pino-pretty": "3.6.1"
+  }
+}
