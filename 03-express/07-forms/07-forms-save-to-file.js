@@ -44,13 +44,13 @@ const getContent = () => (`<!doctype html>
       <h1>Express и формы</h1>
       <form action="/form" method="POST">
         <label for="firstname">Имя:</label>
-        <input id="firstname" name="firstname" />
+        <input id="firstname" name="firstname">
 
         <label for="lastname">Фамилия:</label>
-        <input id="lastname" name="lastname" />
+        <input id="lastname" name="lastname">
 
         <label for="email">Email:</label>
-        <input id="email" name="email" />
+        <input id="email" name="email">
 
         <label for="comment">Комментарий</label>
         <textarea id="comment" name="comment"></textarea>
