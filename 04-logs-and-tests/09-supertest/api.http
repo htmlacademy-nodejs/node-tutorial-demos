@@ -10,7 +10,7 @@ GET http://localhost:3000/api/books/2 HTTP/1.1
 
 # Добавление новой книги
 POST http://localhost:3000/api/books HTTP/1.1
-Content-Type: "application/json"
+Content-Type: application/json
 
 {
   "title": "The Dead Zone",
