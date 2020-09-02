@@ -9,7 +9,7 @@ const Sequelize = require(`sequelize`);
     dialect: `postgres`,
   });
 
-  const Reader = sequelize.import(path.join(__dirname, `./models/reader`));
+  const Reader = require(`./models/reader`)(sequelize);
   const newReaders = [
     {
         firstname: `Ralph`,

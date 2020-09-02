@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require(`path`);
 const Sequelize = require(`sequelize`);
 
 (async () => {
@@ -9,7 +8,7 @@ const Sequelize = require(`sequelize`);
     dialect: `postgres`,
   });
 
-  const Reader = sequelize.import(path.join(__dirname, `./models/reader`));
+  const Reader = require(`./models/reader`)(sequelize);
   const Operator = Sequelize.Op;
 
   // Читатели с именами Ivan и Jon
@@ -20,6 +19,7 @@ const Sequelize = require(`sequelize`);
       },
       raw: true
     });
+
  console.log(entries); // 2 записи
 
  // Читатели Ivan и Jon, которые родились
@@ -49,7 +49,5 @@ const Sequelize = require(`sequelize`);
      raw: true,
  });
  console.log(entries3);
-
-
 
 })();

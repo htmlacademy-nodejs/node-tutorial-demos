@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require(`path`);
 const Sequelize = require(`sequelize`);
 
 (async () => {
@@ -9,7 +8,7 @@ const Sequelize = require(`sequelize`);
     dialect: `postgres`,
   });
 
-  const Reader = sequelize.import(path.join(__dirname, `./models/reader`));
+  const Reader = require(`./models/reader`)(sequelize);
 
   // Все записи из таблицы `Readers`
   const allEntries = await Reader.findAll({raw: true});

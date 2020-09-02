@@ -1,7 +1,9 @@
 'use strict';
 
-module.exports = (sequelize, DataTypes) => {
-    class Book extends sequelize.Sequelize.Model{ }
+const {Model, DataTypes} = require(`sequelize`);
+
+module.exports = (sequelize) => {
+    class Book extends Model{}
     Book.init({
         title: {
           type: DataTypes.STRING,
