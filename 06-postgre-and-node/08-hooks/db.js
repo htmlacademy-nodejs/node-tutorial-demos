@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require(`path`);
 const Sequelize = require(`sequelize`);
 const { genres, authors, books } = require(`./mocks`);
 
@@ -9,10 +8,10 @@ const sequelize = new Sequelize(`library`, `academy`, `123456`, {
     dialect: `postgres`,
 });
 
-const Reader = sequelize.import(path.join(__dirname, `./models/reader`));
-const Author = sequelize.import(path.join(__dirname, `./models/author`));
-const Book = sequelize.import(path.join(__dirname, `./models/book`));
-const Genre =sequelize.import(path.join(__dirname, `./models/genre`));
+const Reader = require(`./models/reader`)(sequelize);
+const Author = require(`./models/author`)(sequelize);
+const Book = require(`./models/book`)(sequelize);
+const Genre = require(`./models/genre`)(sequelize);
 
 // Один-ко-многим
 Author.hasMany(Book, {

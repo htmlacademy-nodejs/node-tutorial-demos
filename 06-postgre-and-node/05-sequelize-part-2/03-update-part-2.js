@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require(`path`);
 const Sequelize = require(`sequelize`);
 
 (async () => {
@@ -10,7 +9,7 @@ const Sequelize = require(`sequelize`);
   });
 
   const id = 1;
-  const Reader = sequelize.import(path.join(__dirname, `./models/reader`));
+  const Reader = require(`./models/reader`)(sequelize);
   await Reader.update({ firstname: `Igor`}, {
       where: {
           id,

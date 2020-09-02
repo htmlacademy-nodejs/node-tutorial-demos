@@ -1,7 +1,9 @@
 'use strict';
 
-module.exports = (sequelize, DataTypes) => {
-    class Reader extends sequelize.Sequelize.Model{ }
+const {Model, DataTypes} = require(`sequelize`);
+
+module.exports = (sequelize) => {
+    class Reader extends Model{}
     Reader.init({
         id: {
             type: DataTypes.INTEGER,
