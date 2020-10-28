@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require(`express`);
-const Joi = require(`@hapi/joi`);
+const Joi = require(`joi`);
 
 const HTTP_CODE_BAD_REQUEST = 400;
 
