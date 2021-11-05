@@ -1,4 +1,5 @@
 'use strict';
+const path = require(`path`);
 
 const express = require(`express`);
 
@@ -8,7 +9,7 @@ const app = express();
 const port = 3000;
 app.listen(port);
 
-app.use(express.static(PUBLIC_DIR));
+app.use(express.static(path.resolve(__dirname, PUBLIC_DIR)));
 
 const getContent = () => (`<!doctype html>
   <html lang="ru">
