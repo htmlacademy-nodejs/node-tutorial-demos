@@ -12,8 +12,8 @@ const {Client} = require(`pg`);
   const resultInsertUser = await client.query(insertQuery, [`Axl`, `Rose`, `1962-02-06`, `test@gr.local`]);
   const id = parseInt(resultInsertUser.rows[0].id, 10);
 
-  const selectLastRectord = `SELECT * FROM peoples WHERE peoples.id = $1`;
-  const userRecord = await client.query(selectLastRectord, [id]);
+  const selectLastRecord = `SELECT * FROM peoples WHERE peoples.id = $1`;
+  const userRecord = await client.query(selectLastRecord, [id]);
 
   console.table(userRecord.rows);
   client.end();
