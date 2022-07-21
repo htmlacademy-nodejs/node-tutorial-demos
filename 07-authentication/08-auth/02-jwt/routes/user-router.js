@@ -8,7 +8,7 @@ const refreshTokenService = require(`../services/refresh-token-service`);
 const authenticate = require(`../middlewares/authenticate`);
 const authenticateJwt = require(`../middlewares/authenticate-jwt`);
 const {makeTokens} = require(`../jwt-helper`);
-const {JWT_ACCESS_SECRET, JWT_REFRESH_SECRET} = require(`../constants`);
+const {JWT_REFRESH_SECRET} = require(`../constants`);
 
 const userRouter = new Router();
 
